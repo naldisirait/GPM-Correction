@@ -1,0 +1,6 @@
+{
+    "path_dataset": "..",
+    "learning_rate": 0,
+    "criterion": 0,
+    "optimizer": 0
+}
