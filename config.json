@@ -1,6 +1,18 @@
 {
-    "path_dataset": "..",
+    "path_data_train": "..",
+    "path_data_test": "..",
     "learning_rate": 0,
     "criterion": 0,
-    "optimizer": 0
+    "optimizer": 0,
+    "features":[
+        "latitude",
+        "longitude",
+        "pu_2yr",
+        "pu_5yr",
+        "pu_10yr",
+        "pu_25yr",
+        "pu_50yr",
+        "pu_100yr"
+    ],
+    "target":["T2","T5","T10","T25","T50","T100"]
 }
