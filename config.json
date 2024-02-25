@@ -1,18 +1,20 @@
 {
-    "path_data_train": "..",
-    "path_data_test": "..",
-    "learning_rate": 0,
-    "criterion": 0,
-    "optimizer": 0,
-    "features":[
-        "latitude",
-        "longitude",
-        "pu_2yr",
-        "pu_5yr",
-        "pu_10yr",
-        "pu_25yr",
-        "pu_50yr",
-        "pu_100yr"
-    ],
-    "target":["T2","T5","T10","T25","T50","T100"]
+    "path_df": "C:/Users/62812/Documents/Kerjaan Meteorologi/GPM-Correction/GPM-Correction/data/elevasi_jarak_obs.xlsx",
+    "path_ann_max_gpm": "C:/Users/62812/Documents/Kerjaan Meteorologi/Data/annual max gpm.nc",
+    "path_ann_max_stas": "C:/Users/62812/Documents/Kerjaan Meteorologi/GPM-Correction/GPM-Correction/data/all_annual_max.pickle" ,
+    "path_skema_test": "C:/Users/62812/Documents/Kerjaan Meteorologi/GPM-Correction/GPM-Correction/data",
+    "gpu index": 0,
+    "learning_rate": 0.001,
+    "criterion": "MSE",
+    "optimizer": "Adam",
+    "skema_test": 1,
+    "data processing approach": 1,
+    "T": [2,5,10,25,50,100],
+    "batch size" : 6,
+    "input size": 20,
+    "hidden layer": [64,32,16],
+    "output size": 6,
+    "model name": "Deep Learning",
+    "ML model name": "..",
+    "epochs": 100
 }

@@ -1,0 +1,75 @@
+1. Stasiun Meteorologi Cut Nyak Dhien Nagan Raya, panjang data: 11 tahun, jumlah data < 20 
+[233.0, 240.0, 151.0, 148.7, 172.7, 119.9, 193.8, 203.9, 179.7, 106.5, 156.4] 
+
+2. Stasiun Meteorologi Sultan Iskandar Muda, panjang data: 20 tahun, terdapat nilai 0 
+[177.0, 0.0, 89.0, 146.0, 66.0, 146.0, 105.0, 71.0, 143.0, 122.0, 101.0, 77.0, 114.0, 188.8, 117.0, 146.0, 161.3, 182.5, 150.0, 147.5] 
+
+3. Stasiun Pemantau Atmosfer Global Bukit Koto Tabang, panjang data: 8 tahun, ada nilai nan 
+[3.5, nan, nan, 42.3, 0.0, nan, 5.5, 47.0] 
+
+4. Stasiun Geofisika Padang Panjang, panjang data: 20 tahun, terdapat nilai 0 
+[183.0, 104.0, 97.0, 183.0, 140.0, 100.0, 0.0, 110.0, 127.0, 237.0, 130.0, 145.0, 83.0, 127.5, 146.9, 143.2, 145.1, 106.0, 101.0, 130.8] 
+
+5. Stasiun Meteorologi Dabo, panjang data: 20 tahun, terdapat nilai 0 
+[96.0, 129.0, 166.0, 123.0, 124.0, 148.0, 162.0, 91.0, 74.0, 78.0, 131.0, 83.0, 0.0, 121.4, 69.8, 121.4, 93.1, 92.7, 99.6, 124.5] 
+
+6. Stasiun Meteorologi Raja Haji Fisabilillah, panjang data: 20 tahun, ada nilai nan 
+[111.0, 138.0, 149.0, 183.0, 184.0, 177.0, 182.0, 104.0, 110.0, 93.0, 235.0, nan, 176.4, 105.6, 105.5, 148.2, 112.2, 108.1, 162.2, 153.8] 
+
+7. Stasiun Meteorologi Perak I, panjang data: 11 tahun, jumlah data < 20 
+[109.4, 74.6, 93.7, 129.3, 102.7, 139.6, 114.5, 119.0, 47.0, 103.5, 133.9] 
+
+8. Stasiun Meteorologi Syamsudin Noor, panjang data: 20 tahun, terdapat nilai 0 
+[78.9, 119.8, 119.8, 136.1, 62.2, 80.0, 109.3, 145.0, 105.2, 0.0, 113.0, 92.4, 23.5, 118.2, 117.5, 98.9, 111.8, 112.1, 70.5, 122.1] 
+
+9. Stasiun Meteorologi Yuvai Semaring, panjang data: 16 tahun, ada nilai nan 
+[75.7, nan, 91.0, 79.8, 125.0, 125.0, 77.5, 63.0, 41.4, 94.4, 167.0, 97.5, 80.5, 62.8, 105.5, 80.2] 
+
+10. Pos Pengamatan Kahang-Kahang, panjang data: 20 tahun, ada nilai nan 
+[162.7, 136.8, 100.7, 105.6, 72.1, 121.4, 118.0, 125.2, 106.4, 69.0, 125.4, nan, 55.6, 98.8, 93.6, 63.0, 18.4, nan, 33.0, 96.5] 
+
+11. Stasiun Meteorologi David Constatijn Saudale, panjang data: 20 tahun, ada nilai nan 
+[109.4, 128.2, nan, nan, 33.4, 151.9, 77.9, 139.1, 90.8, 87.1, 86.5, nan, 52.2, 85.2, 146.6, 72.2, 113.9, 106.0, 93.4, 85.4] 
+
+12. Stasiun Meteorologi Fransiskus Xaverius Seda, panjang data: 16 tahun, jumlah data < 20 
+[132.5, 81.3, 61.0, 50.5, 46.9, 79.1, 73.4, 88.5, 109.4, 54.1, 57.9, 70.0, 110.4, 85.6, 81.5, 53.0] 
+
+13. Stasiun Meteorologi Gewayantana, panjang data: 20 tahun, terdapat nilai 0 
+[52.8, 67.0, 0.0, 51.6, 150.4, 83.9, 99.6, 180.5, 102.3, 99.9, 178.6, 95.3, 73.7, 141.9, 73.0, 82.9, 88.1, 116.8, 68.3, 65.2] 
+
+14. Stasiun Meteorologi Majene, panjang data: 20 tahun, ada nilai nan 
+[75.0, 105.0, 217.0, 138.0, 505.0, 68.4, 72.0, 96.0, 294.6, 112.0, 228.7, nan, 0.3, 42.5, 111.9, 105.5, 151.3, 74.7, 67.4, 140.8] 
+
+15. Stasiun Meteorologi Sultan Hasanuddin, panjang data: 20 tahun, terdapat nilai 0 
+[270.0, 148.0, 128.0, 139.0, 208.0, 139.0, 129.0, 157.0, 128.0, 106.0, 129.0, 103.0, 0.0, 123.6, 136.1, 139.3, 162.5, 141.6, 197.0, 144.2] 
+
+16. Stasiun Meteorologi Andi Jemma, panjang data: 20 tahun, ada nilai nan 
+[107.0, 101.0, 145.0, 132.0, 207.0, 138.0, 114.0, 114.0, 109.0, 199.0, 146.0, 128.0, nan, 89.2, 84.0, 133.0, 93.3, 92.2, 158.0, 117.7] 
+
+17. Stasiun Meteorologi Syukuran Aminudin Amir, panjang data: 20 tahun, ada nilai nan 
+[110.0, 100.0, 78.0, 74.0, 109.0, 112.0, 77.0, 73.0, 58.0, 66.0, 101.0, 107.0, nan, 74.0, 82.3, 74.6, 112.7, 62.5, 73.0, 62.5] 
+
+18. Stasiun Geofisika Manado, panjang data: 20 tahun, ada nilai nan 
+[96.0, 121.0, 108.0, 106.0, 74.0, 80.0, 109.0, 95.0, 107.0, 53.0, 92.0, 107.0, nan, 82.3, 57.9, 77.7, 76.2, 75.9, 107.2, 139.2] 
+
+19. Stasiun Meteorologi Mathilda Batlayeri, panjang data: 20 tahun, ada nilai nan 
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 19.0, 98.9, 107.1, 57.7, 67.0, 67.0, 67.0, nan, 127.0] 
+
+20. Stasiun Meteorologi Pattimura, panjang data: 20 tahun, terdapat nilai 0 
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 360.0, 43.8, 162.9, 198.6, 242.7, 201.2, 238.2, 112.9, 199.3] 
+
+21. Stasiun Meteorologi Gamar Malamo, panjang data: 15 tahun, jumlah data < 20 
+[40.0, 61.0, 106.0, 110.0, 111.0, 147.0, 154.0, 66.4, 58.5, 157.3, 108.5, 93.2, 82.8, 196.0, 104.0] 
+
+22. Stasiun Meteorologi Sultan Babullah, panjang data: 20 tahun, terdapat nilai 0 
+[148.0, 102.0, 87.0, 0.0, 154.0, 90.0, 93.0, 57.0, 87.0, 86.0, 144.0, 61.0, 72.8, 89.0, 59.9, 102.1, 70.6, 98.0, 142.8, 114.4] 
+
+23. Stasiun Meteorologi Wamena Jaya Wijaya, panjang data: 19 tahun, ada nilai nan 
+[41.9, 88.0, 52.5, 61.5, 88.0, 43.7, nan, nan, 41.7, 30.0, 99.7, 54.4, 33.2, 61.1, 40.3, 39.0, 65.3, 93.2, 57.2] 
+
+24. Stasiun Meteorologi Frans Kaisiepo, panjang data: 19 tahun, jumlah data < 20 
+[106.5, 76.3, 114.0, 101.9, 67.2, 73.5, 94.7, 94.7, 136.1, 110.0, 88.1, 131.2, 101.5, 99.5, 147.2, 104.0, 74.3, 78.0, 91.5] 
+
+25. Stasiun Meteorologi Enarotali, panjang data: 20 tahun, ada nilai nan 
+[79.0, 89.0, 51.0, 100.0, nan, 80.0, 51.0, 20.0, 46.0, 50.0, 52.0, 76.0, 75.5, 60.0, 42.0, 60.0, 117.4, 71.2, 54.6, 56.2] 
+
