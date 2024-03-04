@@ -12,6 +12,7 @@
     "T": [2,5,10,25,50,100],
     "batch size" : 6,
     "input size": 20,
+    "output_name": "Periode Ulang",
     "hidden layer": [64,32,16],
     "output size": 6,
     "model name": "Deep Learning",

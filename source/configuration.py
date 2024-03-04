@@ -46,5 +46,9 @@ class Configuration():
 
     def get_epochs(self):
         return self.config['epochs']
+    
     def get_T(self):
         return self.config['T']
+    
+    def get_output_name(self):
+        return self.config['output_name']

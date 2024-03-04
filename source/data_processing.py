@@ -54,6 +54,19 @@ def return_period(data: np.ndarray ,T : int) -> float:
     
     return  return_period_value
 
+def fitted_parameters_gumbel(data):
+    """
+    Function to calculate fitted parameters gumbel
+    Args:
+        data: annual max precipitation data
+    
+    Returns:
+        fitted_distribution: a parameter from gumbel distribution
+
+    """
+    fit_distribution = stats.gumbel_r.fit(data)
+    return fit_distribution
+
 def cal_pu_gpm(data,T):
     output_pu = []
     for i in range(len(data)):
@@ -93,13 +106,26 @@ def pre_process_dataset1(dataset,validation_stasiun_name):
     X_val, y_val = seperate_input_output(val_dataset)
     return X_train, y_train, X_val, y_val
 
+def get_ann_max_grid_gpm_at_station(df_stations, pu_station, ann_max_gpm, lats, lons, number_of_grid):
+    coord_gpm_at_station = {}
+    ann_max_gpm_at_stasiun = {}
+    for station in pu_station:
+        latlon = df_stations[df_stations['Nama Stasiun'] == station][["Lintang","Bujur"]].values
+        lat,lon = latlon[0][0], latlon[0][1]
+        idx_lat, idx_lon, min_lat, min_lon = get_index_coord(lats, lons, lat, lon)
+        coord_gpm_at_station[station] = [min_lat, min_lon]
+        idx_lon_start, idx_lon_end = idx_lon - (int(number_of_grid/2)), idx_lon + (int(number_of_grid/2)+1)
+        idx_lat_start, idx_lat_end = idx_lat - (int(number_of_grid/2)), idx_lat + (int(number_of_grid/2)+1)
+        ann_max_gpm_at_stasiun[station] = ann_max_gpm[:,idx_lon_start:idx_lon_end, idx_lat_start:idx_lat_end]
+    return ann_max_gpm_at_stasiun,coord_gpm_at_station
+
 def process_data1(max_gpm, max_stas, df_stas, config_class):
     """
     Function to process raw data using approach 1
     Args:
-        max_gpm : a xarray dataset contains annual max precipitation GPM and its entity
-        max_stas: a dictionary of annual max precipitation each station, key is the station name
-        df_stas: a dataframe contains detail information at each station
+        max_gpm : xarray dataset contains annual max precipitation GPM and its entity
+        max_stas: dictionary of annual max precipitation each station, key is the station name
+        df_stas: dataframe contains detail information at each station
     Returns:
         X_train, y_train, X_val, y_val
     """
@@ -110,7 +136,7 @@ def process_data1(max_gpm, max_stas, df_stas, config_class):
 
     max_stas = filter_stasiun(max_stas)
 
-    #calculate return period stations
+    #calculate return period on each station
     pu_stas = {}
     T = config_class.get_T()
     for key,val in max_stas.items():
@@ -125,6 +151,7 @@ def process_data1(max_gpm, max_stas, df_stas, config_class):
     for stasiun in pu_stas:
         dataset[stasiun] = (ann_max_gpm_at_stasiun[stasiun], pu_stas[stasiun])
 
+    #get station name for validation data
     path_skema_test = config_class.get_path_skema_test()
     skema_test = config_class.get_skema_test()
     data1 = pd.read_excel(f"{path_skema_test}/Skema Testing {skema_test}.xlsx")
@@ -134,8 +161,62 @@ def process_data1(max_gpm, max_stas, df_stas, config_class):
 
     return X_train, y_train, X_val, y_val
     
-def process_data2(max_gpm, max_stas, df_stas):
-    pass
+def process_data2(max_gpm, max_stas, df_stas, config_class):
+    """
+    Function to process raw data using approach 1
+    Args:
+        max_gpm : xarray dataset contains annual max precipitation GPM and its entity
+        max_stas: dictionary of annual max precipitation each station, key is the station name
+        df_stas: dataframe contains detail information at each station
+    Returns:
+        X_train, y_train, X_val, y_val
+    """
+
+    lats = max_gpm['latitude'].values
+    lons = max_gpm['longitude'].values
+    ann_max_values = max_gpm['__xarray_dataarray_variable__'].values
+    arr_ann_max_gpm = ann_max_values[1:-1,:,:]
+
+    #filter data
+    max_stas = filter_stasiun(max_stas)
+
+    #calculate return period and fitted distribution on each station
+    pu_stas = {}
+    fitted_parameters_stas = {}
+    T = config_class.get_T()
+    for key,val in max_stas.items():
+        pu = []
+        for t in T:
+            pu.append(return_period(data= val, T = t))
+        pu_stas[key] = pu
+        fitted_parameters_stas[key] = fitted_parameters_gumbel(val)
+
+    ann_max_gpm_at_stasiun,coord_gpm_at_station = get_ann_max_grid_gpm_at_station(df_stas, pu_stas, arr_ann_max_gpm, lats, lons, 3)
+    
+    #get station name for validation data
+    path_skema_test = config_class.get_path_skema_test()
+    skema_test = config_class.get_skema_test()
+    data1 = pd.read_excel(f"{path_skema_test}/Skema Testing {skema_test}.xlsx")
+    stasiun_test = list(data1['Nama Stasiun'].unique())
+
+    #seperate train and val data
+    output_name = config_class.get_output_name()
+    X_train, y_train, X_val, y_val = [], [], [], []
+    for station in pu_stas:
+        if station in stasiun_test:
+            X_val.append(ann_max_gpm_at_stasiun[station])
+            if output_name == "Periode Ulang":
+                y_val.append(pu_stas[station])
+            elif output_name == "Fitted Distribution Gumbel":
+                y_val.append(fitted_parameters_stas[station])
+        else:
+            X_train.append(ann_max_gpm_at_stasiun[station])
+            if output_name == "Periode Ulang":
+                y_train.append(pu_stas[station])
+            elif output_name == "Fitted Distribution Gumbel":
+                y_train.append(fitted_parameters_stas[station])
+                
+    return X_train, y_train, X_val, y_val
 
 def process_data(max_gpm, max_stas, df_stas, config_class):
     approach = config_class.get_approach()
@@ -145,7 +226,7 @@ def process_data(max_gpm, max_stas, df_stas, config_class):
     
     elif approach ==2:
         #do the processing_data2
-        X_train, y_train, X_Val, y_val = process_data1(max_gpm, max_stas, df_stas, config_class)
+        X_train, y_train, X_Val, y_val = process_data2(max_gpm, max_stas, df_stas, config_class)
 
     return X_train, y_train, X_Val, y_val
     
