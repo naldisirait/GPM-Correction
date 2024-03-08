@@ -15,7 +15,6 @@ from lightgbm import LGBMRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 
-
 class Model(ABC):
     """
     Abstract base class for all models.
@@ -45,7 +44,6 @@ class Model(ABC):
             y_test: Testing target
         """
         pass
-
 
 class RandomForestModel(Model):
     """
