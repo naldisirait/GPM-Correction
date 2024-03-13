@@ -217,14 +217,17 @@ def process_data2(max_gpm, max_stas, df_stas, config_class):
             elif output_name == "Fitted Distribution Gumbel":
                 y_train.append(fitted_parameters_stas[station])
 
-    #flatten the data for MLP input requirements
+    model_dl_type = config_class.get_model_dl_type()
+
     X_train = np.array(X_train)
     X_val = np.array(X_val)
-
-    s1,s2,s3,s4 = X_train.shape
-    X_train = np.reshape(X_train,(s1,-1))
-    s1,s2,s3,s4 = X_val.shape
-    X_val = np.reshape(X_val,(s1,-1))
+    
+    if model_dl_type == "MLP":
+        #flatten the data for MLP input requirements
+        s1,s2,s3,s4 = X_train.shape
+        X_train = np.reshape(X_train,(s1,-1))
+        s1,s2,s3,s4 = X_val.shape
+        X_val = np.reshape(X_val,(s1,-1))
 
     return X_train, y_train, X_val, y_val
 

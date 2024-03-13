@@ -52,3 +52,6 @@ class Configuration():
     
     def get_output_name(self):
         return self.config['output_name']
+    
+    def get_model_dl_type(self):
+        return self.config['model dl type']
